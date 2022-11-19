@@ -70,6 +70,7 @@ see you!
 * 未完成歷史記錄部分，設想的解決方法是將做好的 PDF 轉成 base64 存進 localstorage 後再重新轉回 PDF 渲染回網頁上
 * 未完成簽名跳窗裡的新增簽名 / 刪除簽名功能，設想的解決方法是直接動 vue 裡面的資料來處理
 * 未完成簽名檔的資料結構處理，以 localstorage 處理還是有很多限制，設想的解決方法是好好地開一個資料庫、弄好結構之後接回來QQ
+* 下載下來的 PDF 檔案解析度偏低，應該在 PDF.js, fabric.js, jsPDF 中會有辦法能夠解決？
 
 
 ## [DEMO（https://aa367421.github.io/F2E_2022_W2/index.html）](https://aa367421.github.io/F2E_2022_W2/index.html)
