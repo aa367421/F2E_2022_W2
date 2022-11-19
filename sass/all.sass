@@ -1,0 +1,775 @@
+// normalize.css
+
+@import 'mixin'
+@import 'variables'
+
+*
+    font-family: 'Noto Sans TC'
+    font-style: normal
+    font-weight: 400
+    color: $colorBlack
+    box-sizing: border-box
+
+ul
+    list-style: none
+    padding: 0
+
+.container
+    position: fixed
+    width: 100vw
+    height: 100vh
+    background-color: $colorGrayLight
+
+input[type="file"]
+    +hideUploadInput
+
+.cover-section
+    .cover-top-bar
+        +flex(space-between, flex-end)
+        width: 80vw
+        margin: 8vh auto 0 auto
+        .logo
+            position: relative
+            .logo-svg
+                +pos(auto, auto, 0px, 0px)
+                &:first-child
+                    +pos(auto, auto, 30px, 0px)
+                &:nth-child(2)
+                    +pos(auto, auto, 30px, 11px)
+            &::after
+                display: block
+                content : "GNSign"
+                font-size: $fontSizeM
+                margin-left: 8vw
+        .to-record-btn
+            color: $colorGreen
+            font-size: $fontSizeM
+            line-height: $lineHeightM
+            border: none
+            border-bottom: 1px solid $colorGreen
+    .main-upload
+        +pos(40%, 0, 0, 50%)
+        +transform(-50%, -50%)
+        width: 85vw
+        height: 50vh
+        background-color: white
+        border: 2px dashed $colorGray
+        border-radius: 26px
+        @media (min-width: 415px)
+            pointer-events: none
+        .file-upload
+            +flex
+            flex-direction: column
+            position: relative
+            width: 100%
+            height: 100%
+            background-image: url('../img/decoration/file-decoration-0.png')
+            +bgSizeAndRepeat(50%, center 15%)
+            span
+                text-align: center
+            .upload-btn
+                +flex
+                +pos(50%, 0, 0, 50%)
+                +transform(-50%)
+                color: white
+                font-size: $fontSizeM
+                line-height: $lineHeightM
+                width: 70vw
+                height: 8vh
+                background: $colorGreenGraident
+                border-radius: 16px
+            .upload-warning
+                +pos(calc(50% + 10vh), 0, 0, 50%)
+                +transform(-50%)
+                width: 70vw
+                font-size: 14px
+                line-height: 20px
+                background: $colorGreenGraident
+                +textWithGraident
+    .front-decoration
+        +flex
+        flex-direction: column
+        +pos(auto, auto, 0, 50%)
+        +transform(-50%, 0)
+        z-index: 1
+        width: 100vw
+        pointer-events: none
+        .decoration
+            width: 100vw
+            height: 20vh
+            position: relative
+            background-image: url('../img/decoration/decoration-pond-0.png')
+            +bgSizeAndRepeat(90%, center bottom)
+            img[class$="decoration"]
+                width: 25vw
+                +transform(0%, -10%)
+                z-index: 1
+            img:first-child
+                +pos(auto, auto, 0, 0)
+                width: 35vw
+            img:nth-child(2)
+                +pos(auto, auto, 0, 35%)
+            img:nth-child(3)
+                +pos(auto, 5%, 5%, auto)
+                width: 30vw
+            img:last-child
+                +pos(auto, auto, 0, 55%)
+                width: 20vw
+                z-index: 0
+        .bottom-recommend
+            font-size: 12px
+            line-height: 17px
+            margin: 10px 0px
+
+.record-section
+    display: none
+    width: 100vw
+    height: 100vh
+    &.active
+        display: block
+    .record-top-bar
+        +flex(space-between)
+        +pos(0px, auto, auto, 0px, fixed)
+        width: 100vw
+        height: 60px
+        padding: 0px 25px
+        background-color: $colorGreen
+    .record-tree
+        +flex
+        flex-direction: column
+        width: 100vw
+        height: 90vh
+        .record-tree-img
+            margin-bottom: 35px
+        .record-text
+            font-size: $fontSizeM
+            line-height: $lineHeightM
+    .record-list
+        +flex(flex-start)
+        flex-direction: column
+        margin: 60px 0 0 0
+        .year
+            width: 100vw
+            margin: 11.5px 0px
+            padding: 0 16px
+            font-style: none
+            font-family: "Roboto"
+            font-weight: 700
+            font-size: $fontSizeS
+            line-height: $lineHeightS
+        .record-content
+            +flex(flex-start)
+            position: relative
+            width: calc( 100vw - 32px )
+            margin: 0 16px
+            padding: 0px 26px 0 12px
+            background: white
+            box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.11)
+            border-radius: 13px
+            .record-date
+                font-size: $fontSizeS
+                line-height: $lineHeightS
+                margin-right: 12px
+            .record-title
+                font-size: $fontSizeS
+                line-height: $lineHeightMS
+                background: $colorGreenGraident
+                +textWithGraident
+            .record-img
+                +pos(50%, 25px)
+                +transform(0%, -50%)
+    .record-data-page
+        +flex(flex-start)
+        flex-direction: column
+        width: 90vw
+        height: 100vh
+        margin: 0 auto
+        padding: 16px 0 32px 0
+        .top-btn-group
+            +flex(space-between)
+            margin-bottom: 16px
+            width: 100%
+            .page-btn-group
+                +flex(space-between)
+                width: 55vw
+                height: 58px
+                padding: 14px 16px
+                background-color: white
+                border-radius: 16px
+                button[class$="page-btn"]
+                    width: 30px
+                    height: 30px
+                    color: white
+                    font-weight: bold
+                    background-color: $colorGreen
+                    border: none
+                    border-radius: 12px  
+                .page
+                    text-align: center
+                    font-size: $fontSizeS
+                    line-height: $lineHeightS
+            .to-home-page-btn
+                font-size: $fontSizeM
+                color: $colorGreen
+                line-height: $lineHeightM
+                padding: 16px 38px
+                background-color: white
+                border: none
+                border-radius: 16px
+        .record-canvas
+            width: 100%
+            height: 65vh
+            background-color: black
+            margin-bottom: 42px
+        .save-btn
+            width: 70vw
+            height: 8vh
+            font-size: $fontSizeM
+            line-height: $lineHeightM
+            color: white
+            background: $colorGreenGraident
+            border: none
+            border-radius: 16px
+
+.sign-section
+    +flex(flex-start)
+    flex-direction: column
+    display: none
+    opacity: 0
+    width: 90vw
+    height: 100vh
+    padding: 28px 0px
+    margin: 0 auto
+    .top-btn-group
+        +flex
+        width: 65vw
+        background-color: white
+        border-radius: 14px
+        margin-bottom: 60px
+        button
+            width: 50%
+            min-width: 120px
+            height: 40px
+            color: $colorGreen
+            font-size: $fontSizeS
+            line-height: $lineHeightMS
+            background-color: white
+            border: none
+            border-radius: 14px
+            &.active
+                color: white
+                background: $colorGreenGraident
+    .stroke-color-btn-group
+        +flex(space-around)
+        width: 50vw
+        margin-bottom: 16px
+        button
+            position: relative
+            width: 40px
+            height: 40px
+            border: 5px solid white
+            border-radius: 50%
+            box-sizing: unset
+            margin: 0
+            padding: 0
+            &.active::after
+                +pos(50%, auto, auto, 50%)
+                +transform(-50%, -50%)
+                content: ''
+                width: 140%
+                height: 140%
+                border-radius: 50%
+                border: none
+                background-color: inherit
+                z-index: -1
+        .color-black-btn
+            background-color: #000
+        .color-blue-btn
+            background-color: $colorBlue
+        .color-red-btn
+            background-color: $colorRed
+    .sign-canvas-div
+        +flex
+        position: relative
+        width: 100%
+        height: 30vh
+        border-radius: 26px
+        margin-bottom: 26px
+        .sign-canvas
+            position: absolute
+            top: 0
+            width: 100%
+            height: 100%
+            background-color: white
+            border-radius: 26px
+        .canvas-bg-hint
+            display: none
+            font-size: $fontSizeM
+            line-height: $lineHeightM
+            text-align: center
+            color: $colorGray
+            z-index: 0
+            pointer-events: none
+            user-select: none
+            &.active
+                display: block
+            &.data
+                border-bottom: 1px solid $colorGray
+        .sign-upload
+            +flex
+            +pos(0, 0)
+            display: none
+            width: 100%
+            height: 30vh
+            border-radius: 26px
+            margin-bottom: 26px
+            background-color: transparent
+            &.active
+                display: flex
+    .bottom-btn-group
+        +flex(space-between)
+        width: 100%
+        button
+            width: 42.5vw
+            height: 8vh
+            font-size: $fontSizeM
+            line-height: $lineHeightM
+            color: $colorGreen
+            background-color: #fff
+            border: 1px solid $colorGreen
+            border-radius: 16px
+        .create-btn
+            color: white
+            background: $colorGreenGraident
+            border: none
+
+.edit-pdf-section
+    +flex(flex-start)
+    flex-direction: column
+    display: none
+    opacity: 0
+    width: 90vw
+    height: 100vh
+    margin: 0 auto
+    padding: 16px 0 32px 0
+    .top-btn-group
+        +flex(space-between)
+        margin-bottom: 16px
+        width: 100%
+        .page-btn-group
+            +flex(space-between)
+            width: 55vw
+            height: 58px
+            padding: 14px 16px
+            background-color: white
+            border-radius: 16px
+            button
+                width: 30px
+                height: 30px
+                color: white
+                font-weight: bold
+                background-color: $colorGreen
+                border: none
+                border-radius: 12px
+                &.disabled
+                    // from https://codepen.io/sosuke/pen/Pjoqqp
+                    filter: invert(60%) sepia(98%) saturate(0%) hue-rotate(162deg) brightness(98%) contrast(101%)
+            .page
+                text-align: center
+                font-size: $fontSizeS
+                line-height: $lineHeightS
+        .finish-btn, .to-home-page-btn
+            display: none
+            min-width: 130px
+            font-size: $fontSizeM
+            color: white
+            background: $colorGreenGraident
+            line-height: $lineHeightM
+            padding: 16px 0px
+            background-color: white
+            border: none
+            border-radius: 16px
+            &.active
+                display: block
+        .to-home-page-btn
+            display: none
+            color: $colorGreen
+            background: white
+    .edit-pdf-canvas
+        overflow: hidden
+        width: 90vw 
+        height: 65vh 
+        margin-bottom: 42px
+        .canvas-container  // for fabric
+            width: 100% !important
+            height: 100% !important
+            canvas
+                max-width: 100%
+                max-height: 100%
+    .bottom-btn-group
+        +flex(space-around)
+        width: 100%
+        height: 10vh
+        background-color: white
+        border-radius: 16px
+        padding: 0px 10vw
+        button
+            +flex(flex-end)
+            flex-direction: column
+            background: white
+            border: none
+            width: 60px
+            height: 60px
+            margin: 0
+            padding: 0
+            transition: 0.1
+            .btn-img
+                width: 40px
+                height: 40px
+                pointer-events: none
+            span
+                color: $colorGray
+                font-size: 12px
+                line-height: 17px
+                pointer-events: none
+            &.active
+                span
+                    color: $colorGreen
+        .sign-btn
+            .btn-img
+                background-image: url("../img/Icon/sign.png")
+            &.active
+                .btn-img
+                    background-image: url("../img/Icon/sign-active.png")
+        .check-btn
+            .btn-img
+                background-image: url("../img/Icon/check.png")
+            &.active
+                .btn-img
+                    background-image: url("../img/Icon/check-active.png")
+        .date-btn
+            .btn-img
+                background-image: url("../img/Icon/date.png")
+            &.active
+                .btn-img
+                    background-image: url("../img/Icon/date-active.png")
+        .text-btn
+            .btn-img
+                background-image: url("../img/Icon/text.png")
+            &.active
+                .btn-img
+                    background-image: url("../img/Icon/text-active.png")
+    .save-btn
+        display: none
+        width: 70vw
+        height: 8vh
+        font-size: $fontSizeM
+        line-height: $lineHeightM
+        color: white
+        background: $colorGreenGraident
+        border: none
+        border-radius: 16px
+        &.active
+            display: block
+
+.loading-section
+    +pos(0, 0)
+    +flex
+    flex-direction: column
+    display: none
+    opacity: 0
+    background-color: $colorGrayLight
+    width: 100vw
+    height: 100vh
+    z-index: 99
+    &.active
+        display: flex
+    .loading-ani
+        width: 50vw
+        height: 50vw
+    .loading-text
+        font-size: $fontSizeM
+        line-height: $lineHeightM
+
+.download-result-section
+    +pos(0, 0)
+    display: none
+    background-color: $colorGrayLight
+    z-index: 99
+    .result-div
+        +flex
+        position: relative
+        flex-direction: column
+        padding-bottom: 35%
+        width: 100vw
+        height: 100vh
+        .result-ani
+            width: 50vw
+            height: 50vw
+        .result-img
+            margin-bottom: 28px
+        .result-text
+            font-size: 22px
+            line-height: 32px
+    .to-home-page-btn
+        // make it fit to save-btn
+        +pos(calc(16px + 58px + 16px + 65vh + 42px + 8vh), auto, auto, 50%)
+        +transform(-50%, -100%)
+        width: 70vw
+        height: 8vh
+        font-size: $fontSizeM
+        line-height: $lineHeightM
+        color: white
+        background: $colorGreenGraident
+        border: none
+        border-radius: 16px
+
+.alert-section
+    +pos(0, 0)
+    z-index: 99
+    +flex
+    display: none
+    opacity: 0
+    background-color: rgba(#BABABA, 0.47)    
+    backdrop-filter: blur(2.5px)
+    width: 100vw
+    height: 100vh
+    &.active
+        display: flex
+    & > div
+        +flex
+        display: none
+        opacity: 0
+        flex-direction: column
+        width: 90vw
+        height: 25vh
+        background-color: $colorGrayLight
+        border: none
+        border-radius: 26px
+        box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.11)
+        &.active
+            display: flex
+    .file-alert-block
+        height: unset
+        min-height: 20vh
+        .file-alert-text
+            font-size: $fontSizeM
+            line-height: $lineHeightM
+            margin-bottom: 28px
+        .confirm-btn
+            width: 65vw
+            height: 8vh
+            color: white
+            font-size: $fontSizeM
+            line-height: $lineHeightM
+            background-color: $colorGreen
+            border: none
+            border-radius: 16px
+    .sign-alert-block
+        .sign-alert-text
+            font-size: $fontSizeM
+            line-height: $lineHeightM
+        .confirm-btn
+            width: 65vw
+            height: 8vh
+            color: white
+            font-size: $fontSizeM
+            line-height: $lineHeightM
+            background-color: $colorGreen
+            border: none
+            border-radius: 16px
+    .sign-block
+        position: relative
+        +flex(flex-start)
+        display: none
+        height: unset
+        min-height: 15vh
+        .sign-text
+            font-size: $fontSizeM
+            line-height: $lineHeightM
+            color: $colorGreen
+        .sign-list
+            +flex(flex-start)
+            flex-direction: column
+            width: 100%
+            margin-bottom: 15%
+            .sign-card
+                +flex(space-between)
+                width: 90%
+                margin-bottom: 12px
+                .sign-div
+                    width: 72vw
+                    height: 9vh
+                    background-color: white
+                    border-radius: 16px
+                    object-fit: contain
+                    img
+                        width: 100%
+                        height: 100%
+        .add-text
+            +pos(auto, auto, 0, 10%)
+            +transform(0%, -50%)
+            font-size: $fontSizeS
+            line-height: $lineHeightMS
+            color: $colorGreen
+    .text-block
+        .text-area
+            width: 90%
+            height: 12vh
+            color: #000
+            font-size: $fontSizeS
+            line-height: $lineHeightMS
+            margin-bottom: 16px
+            padding: 10px 16px
+            background-color: white
+            border: none
+            border-radius: 16px
+            resize: none
+        .btn-group            
+            +flex(space-between)
+            width: 90%
+            button
+                font-size: $fontSizeM
+                line-height: $lineHeightM
+                width: 47.5%
+                height: 7vh
+                +resetMarginAndPadding
+                color: $colorGreen
+                border: 1px solid $colorGreen
+                border-radius: 26px
+            .confirm-btn
+                color: white
+                background-color: $colorGreen
+    .add-sign-block
+        height: unset
+        padding: 24px 0px
+        .top-btn-group
+            +flex
+            width: 65vw
+            background-color: white
+            border-radius: 14px
+            margin-bottom: 20px
+            button
+                width: 50%
+                min-width: 120px
+                height: 40px
+                color: $colorGreen
+                font-size: $fontSizeS
+                line-height: $lineHeightMS
+                background-color: white
+                border: none
+                border-radius: 14px
+                &.active
+                    color: white
+                    background: $colorGreenGraident
+        .color-and-clean-btn-group
+            +flex(space-between)
+            width: 75vw
+            margin-bottom: 25px
+            .color-btn-group
+                +flex(space-around)
+                width: 50vw
+                .outline
+                    position: relative
+                    width: 50px
+                    height: 50px
+                    border-radius: 50%
+                    &.active
+                        &:first-child
+                            background-color: #000
+                        &:nth-child(2)
+                            background-color: $colorBlue
+                        &:last-child
+                            background-color: $colorRed
+                button
+                    +pos(50%, auto, auto, 50%)
+                    +transform(-50%, -50%)
+                    width: 40px
+                    height: 40px
+                    border: 3px solid white
+                    border-radius: 50%
+                    box-sizing: unset
+                    margin: 0
+                    padding: 0
+                .color-black-btn
+                    background-color: #000
+                .color-blue-btn
+                    background-color: $colorBlue
+                .color-red-btn
+                    background-color: $colorRed
+            .clean-btn
+                background: none
+                border: none
+                font-size: $fontSizeM
+                line-height: $lineHeightM
+                color: $colorGreen
+        .sign-canvas
+            +flex
+            width: 85vw
+            height: 30vh
+            background-color: black
+            border-radius: 16px
+            margin-bottom: 16px
+            p
+                font-size: $fontSizeM
+                line-height: $lineHeightM
+                color: $colorGray
+        .bottom-btn-group
+            +flex(space-between)
+            width: 70vw
+            button
+                width: 32.5vw
+                height: 8vh
+                +resetMarginAndPadding
+                font-size: $fontSizeM
+                line-height: $lineHeightM
+                color: $colorGreen
+                background-color: #fff
+                border: 1px solid $colorGreen
+                border-radius: 16px
+            .create-btn
+                color: white
+                background: $colorGreenGraident
+                border: none
+    .file-load-block
+        height: unset
+        min-height: 20vh
+        .file-alert-text
+            font-size: $fontSizeM
+            line-height: $lineHeightM
+            margin-bottom: 28px
+        .bottom-btn-group
+            +flex(space-between)
+            width: 70vw
+            button
+                width: 32.5vw
+                height: 8vh
+                font-size: $fontSizeM
+                line-height: $lineHeightM
+                color: $colorGreen
+                background-color: #fff
+                border: 1px solid $colorGreen
+                border-radius: 16px
+                +resetMarginAndPadding
+            .confirm-btn
+                color: white
+                background: $colorGreenGraident
+                border: none
+
+@media (min-width: 415px)
+    .alert-section
+        display: flex !important
+        opacity: 1 !important
+        backdrop-filter: blur(10px)
+        pointer-events: none
+        .for-pc-alert
+            display: flex
+            opacity: 1
+            width: 60vw
+            height: 50vh
+            p
+                font-size: 24px
+                line-height: 36px
+
+
+
