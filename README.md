@@ -18,7 +18,7 @@ The F2E 2022 第二關的作品，感謝有這個機會讓我接觸到了 PDF �
 ## Project Description 系統說明
 
 
-以 npm 引入 vue 做簡單的訊息回饋、 localstorage 處理，以及簡化一些按鈕的監聽、頁面切換、lottie.js 儲存在本機，其餘均用 cdn 方式引用
+以 npm 引入 Vue 做簡單的訊息回饋、 localstorage 處理，以及簡化一些按鈕的監聽、頁面切換、lottie.js 儲存在本機，其餘均用 cdn 方式引用
 
 
 ## Folder Description 資料夾說明
