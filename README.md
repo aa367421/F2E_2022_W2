@@ -18,7 +18,7 @@ The F2E 2022 第二關的作品，感謝有這個機會讓我接觸到了 PDF �
 ## Project Description 系統說明
 
 
-以 npm 引入 Vue 做簡單的訊息回饋、 localstorage 處理，以及簡化一些按鈕的監聽、頁面切換、lottie.js 儲存在本機，其餘均用 cdn 方式引用
+除 lottie.js 儲存在本機外，其餘均用 CDN 方式引用
 
 
 ## Folder Description 資料夾說明
@@ -74,6 +74,7 @@ see you!
 * 未完成簽名跳窗裡的新增簽名 / 刪除簽名功能，設想的解決方法是直接動 vue 裡面的資料來處理
 * 未完成簽名檔的資料結構處理，以 localstorage 處理還是有很多限制，設想的解決方法是好好地開一個資料庫、弄好結構之後接回來QQ
 * 下載下來的 PDF 檔案解析度偏低，應該在 PDF.js, fabric.js, jsPDF 中會有辦法能夠解決？
+* 11/26: 發現還不會用 npm 方式部屬……先切回 CDN ！
 
 
 ## [DEMO（https://aa367421.github.io/F2E_2022_W2/index.html）](https://aa367421.github.io/F2E_2022_W2/index.html)
