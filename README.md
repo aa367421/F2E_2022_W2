@@ -38,6 +38,8 @@ The F2E 2022 第二關的作品，感謝有這個機會讓我接觸到了 PDF �
 
 * Normalize CSS
 * SASS
+* Vue
+  - 訊息回饋、 localstorage 處理
 * GSAP 
   - 主要的動態達成、頁面切換
 * lottie
